@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Input Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='images/telcoBG.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TrustTelecom Customer Churn Prediction</h2>
+        <h2>User Input Form</h2>
+        <form method="POST" class="form-container">
+            <div class="column">
+                <div class="section-title">User Information</div>
+                <div class="form-group">
+                    <label for="married">Married:</label>
+                    <select id="married" name="married" required>
+                        <option value="No" selected>No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" step="1" id="age" name="age" value="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="num_dependents">Dependents:</label>
+                    <input type="number" id="num_dependents" name="num_dependents" value="0" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip_code">ZIP Code (5 Digits):</label>
+                    <input type="number" id="zip_code" name="zip_code" value="90001" pattern="\d{5}" inputmode="numeric" required>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="section-title">Account Details</div>
+                <div class="form-group">
+                    <label for="contract_type">Contract Type:</label>
+                    <select id="contract_type" name="contract_type" required>
+                        <option value="Month-to-Month" selected>Month-to-Month</option>
+                        <option value="One Year">One Year</option>
+                        <option value="Two Year">Two Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="internet_type">Internet Type:</label>
+                    <select id="internet_type" name="internet_type" required>
+                        <option value="Fiber Optic" selected>Fiber Optic</option>
+                        <option value="Cable">Cable</option>
+                        <option value="DSL">DSL</option>
+                        <option value="None">None</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment_method">Payment Method:</label>
+                    <select id="payment_method" name="payment_method" required>
+                        <option value="Credit Card" selected>Credit Card</option>
+                        <option value="Bank Withdrawal">Bank Withdrawal</option>
+                        <option value="Mailed Check">Mailed Check</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tenure_months">Tenure (Months):</label>
+                    <input type="number" id="tenure_months" name="tenure_months" value="12" step="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="total_monthly_fee">Monthly Fee ($):</label>
+                    <input type="number" step="0.01" id="total_monthly_fee" name="total_monthly_fee" value="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="num_referrals">Referrals:</label>
+                    <input type="number" id="num_referrals" name="num_referrals" value="0" step="1" required>
+                </div>
+            </div>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction is defined %}
+        <h2>Model Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

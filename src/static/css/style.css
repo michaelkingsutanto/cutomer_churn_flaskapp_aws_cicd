@@ -1,0 +1,82 @@
+/*  1. Set font of entire webpage to Open Sans (Google Font)  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: url("{{ url_for('static', filename='images/telcoBG.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    font-size: 14px;
+}
+
+input, select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* 2. Simple CSS formatting for HTML form */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensure that columns wrap on smaller screens */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%; /* Adjusted to ensure two columns fit side by side */
+    margin: 0 10px; /* Add some space between columns */
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 16px 0; /* Increased margin slightly */
+}
+
+.form-group label {
+    flex: 1;
+    margin-right: 10px; /* Adjusted margin for better spacing */
+    white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.form-group input, .form-group select {
+    flex: 2;
+    padding: 8px 10px; /* Adjusted padding to make input boxes narrower */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; /* Ensure full width within the column */
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #00aaff; /* Light blue color */
+    color: white;
+    padding: 8px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Bigger text */
+    font-weight: bold; /* Bold text */
+}
+
+input[type=submit]:hover {
+    background-color: #0088cc; /* Slightly darker blue on hover */
+}
+
+.container {
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto; /* Center the container */
+    max-width: 900px; /* Maximum width */
+    background-color: rgba(34, 34, 34, 0.25); /* Dark color with 80% opacity */
+    color: white; /* Ensure text is readable on dark background */
+}
+
+.section-title {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px; /* Add margin to separate sections */
+}
